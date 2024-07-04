@@ -1,16 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    item: undefined
-}
-
-export const products = createSlice({
+    items: undefined
+  }
+  
+  export const products = createSlice({
     name: "products",
     initialState,
     reducers: {
-        addProduct: (state, action) => {
-            state.item = action.payload
-        }
+      addProduct: (state, action) => {
+        state.items = action.payload
+      }
+    },
+    extraReducers: {
+      ["cart/createCartItem"]: (state, action) => {
+        state.items.find(el => el.id === action.payload.id).picked = true
+      },
     }
 })
 

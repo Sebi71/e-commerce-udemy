@@ -1,0 +1,26 @@
+.container-cart {
+    position: fixed; 
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    top: 1.25rem;
+    right: 1.25rem;
+    background-color: #f1f5f9;
+    border-radius: 0.375rem; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    .icon-cart {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .text-cart {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+}
+

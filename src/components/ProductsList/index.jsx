@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { getproductsList } from "../../services/asyncActions";
+import { getproductsList, addToCart } from "../../services/asyncActions";
+
 import "./index.scss";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
 
-  if (!products.item) {
+  if (!products.items) {
     dispatch(getproductsList());
   }
   console.log(products);
@@ -15,8 +16,8 @@ export default function ProductsList() {
     <div className="container-products">
       <h1 className="title-products">Retrouvez nos produits :</h1>
       <ul className="grid-products">
-        {products.item &&
-          products.item.map((product) => (
+        {products.items &&
+          products.items.map((product) => (
             <li className="card-product" key={product.id}>
               <img
                 className="img-product"
@@ -28,6 +29,7 @@ export default function ProductsList() {
                 <p className="price-product">{product.price} €</p>
               </div>
               <button
+                onClick={() => dispatch(addToCart(product.id))}
                 className={`${
                   product.picked ? "picked" : "no-picked"
                 } btn-product`}

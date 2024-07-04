@@ -1,3 +1,4 @@
+import BtnCart from "../../components/BtnCart";
 import ProductsList from "../../components/ProductsList";
 
 import "./index.scss"
@@ -10,6 +11,7 @@ export default function MainPage() {
           <ProductsList />
         </div>
       </div>
+      <BtnCart />
     </>
   )
 }
