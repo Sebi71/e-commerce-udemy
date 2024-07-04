@@ -10,7 +10,6 @@ export default function ProductsList() {
   if (!products.items) {
     dispatch(getproductsList());
   }
-  console.log(products);
 
   return (
     <div className="container-products">

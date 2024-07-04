@@ -16,6 +16,9 @@ const initialState = {
       ["cart/createCartItem"]: (state, action) => {
         state.items.find(el => el.id === action.payload.id).picked = true
       },
+      ["cart/deleteCart"]: (state, action) => {
+        state.items.find(product => product.id === action.payload).picked = false
+      }
     }
 })
 

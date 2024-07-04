@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { updateItem, deleteCart } from "../../features/cart";
 import "./index.scss";
 
 export default function Cart({ onClose }) {
@@ -24,7 +25,11 @@ export default function Cart({ onClose }) {
                 <select
                   name="quantity"
                   className="cart-quantity"
-                  // onChange={(e) => dispatch()}
+                  onChange={(e) =>
+                    dispatch(
+                      updateItem({ value: e.target.value, id: product.id })
+                    )
+                  }
                   value={product.quantity}
                 >
                   <option value="1">1</option>
@@ -34,7 +39,12 @@ export default function Cart({ onClose }) {
                   <option value="5">5</option>
                   <option value="6">6</option>
                 </select>
-                <button className="btn-delete">Supprimer du panier</button>
+                <button
+                  onClick={() => dispatch(deleteCart(product.id))}
+                  className="btn-delete"
+                >
+                  Supprimer du panier
+                </button>
               </li>
             ))
           ) : (
